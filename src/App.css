@@ -4,4 +4,29 @@
 
 body {
     margin: 0;
+    padding: 0;
+    font-family: Quicksand;
+    background-color: #EEEEEE;
+    font-weight: 600;
+}
+
+main {
+    display: flex;
+}
+
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: Quicksand;
+    font-weight: 600;
+    color: #1F7A54;
+    background-color: transparent;
 }

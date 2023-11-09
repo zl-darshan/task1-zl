@@ -1,0 +1,10 @@
+footer {
+    width: 100%;
+    margin: 24px 0;
+    font-size: 14px;
+    text-align: center;
+
+    .bar {
+        color: #0000001F;
+    }
+}

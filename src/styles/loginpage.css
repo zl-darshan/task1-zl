@@ -1,0 +1,102 @@
+.login-section {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+
+    .login-div {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 488px;
+        height: 419px;
+        vertical-align: middle;
+        text-align: center;
+        border-radius: 2px;
+        background-color: white;
+        border-top: 4px solid #3ac7ec;
+
+        .title {
+            margin-bottom: 0;
+        }
+
+        .input-form {
+            margin-top: 8px;
+            padding: 0 32px;
+
+            .email-div,
+            .password-div {
+                display: flex;
+                flex-direction: column;
+                height: 48px;
+                align-items: end;
+                margin-bottom: 24px;
+            }
+
+            .email-div {
+                margin-bottom: 32px;
+            }
+
+            .password-div .password-visibility-icon {
+                top: -48px;
+                position: relative;
+            }
+
+            .input {
+                border: none;
+                width: 100%;
+                outline: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            }
+
+            .forgot-btn {
+                margin-top: 5px;
+                background: none;
+                border: none;
+                font-size: 14px;
+                color: #1F7A54;
+                font-weight: 600;
+            }
+
+            .checkbox-div {
+                text-align: start;
+                color: #222222;
+                font: normal bold 16px/20px Quicksand;
+
+                #remember-me {
+                    accent-color: #1F7A54;
+                }
+            }
+
+            .login {
+                margin-top: 34px;
+                width: 216px;
+                height: 40px;
+                border: none;
+                border-radius: 2px;
+                color: #1F2834;
+                background-color: #3fd28b;
+                font-weight: 600;
+                box-shadow: 0px 3px 5px #0000003D;
+            }
+        }
+
+        .signup-flow {
+            .text {
+                font-size: 12px;
+            }
+        }
+
+        .create-account {
+            margin-top: 5px;
+            background: none;
+            border: none;
+            font-size: 14px;
+            color: #1F7A54;
+            font-weight: 600;
+            font-family: Quicksand;
+        }
+    }
+}
