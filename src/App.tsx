@@ -20,12 +20,12 @@ export default function App(): React.ReactNode {
 	const [isPasswordVisible, setisPasswordVisible] = React.useState<boolean>(false);
 
 	function handleInputChange(event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>): void {
-		const target = event.target as HTMLInputElement;
+		const target = event.target as HTMLElement;
 
 		if (target.getAttribute('data-password-toggle-btn')) {
 			setisPasswordVisible((prevVal: boolean) => !prevVal);
 		} else {
-			const { name, value, type, checked } = (target);
+			const { name, value, type, checked } = (target as HTMLInputElement);
 			setAuthUser(prevFormData => {
 				return {
 					...prevFormData,
