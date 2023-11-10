@@ -46,7 +46,9 @@ export default function App(): React.ReactNode {
 	return (
 		<main>
 			<div className="main-container">
-				<Navbar />
+				<Navbar
+					isLoggedIn={isLoggedIn}
+					authUser={authUser} />
 				{isLoggedIn ?
 					<RoleList /> :
 					<Login
@@ -55,7 +57,7 @@ export default function App(): React.ReactNode {
 						handleInputChange={handleInputChange}
 						handleLoginSubmit={handleLoginSubmit} />
 				}
-				<Footer />
+				{!isLoggedIn && <Footer />}
 			</div>
 		</main>
 	);
