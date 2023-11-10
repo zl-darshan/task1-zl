@@ -4,8 +4,11 @@ import "./App.css"
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
+import RoleList from "./components/RoleList";
 
 export default function App(): React.ReactNode {
+
+	const [isLoggedIn, setLogin] = React.useState<boolean>(false);
 
 	const [authUser, setAuthUser] = React.useState<{
 		email: string,
@@ -37,17 +40,21 @@ export default function App(): React.ReactNode {
 
 	function handleLoginSubmit(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
 		console.log("Logged In with ", authUser);
+		setLogin(true);
 	}
 
 	return (
 		<main>
 			<div className="main-container">
 				<Navbar />
-				<Login
-					userData={authUser}
-					isPasswordVisible={isPasswordVisible}
-					handleInputChange={handleInputChange}
-					handleLoginSubmit={handleLoginSubmit} />
+				{isLoggedIn ?
+					<RoleList /> :
+					<Login
+						userData={authUser}
+						isPasswordVisible={isPasswordVisible}
+						handleInputChange={handleInputChange}
+						handleLoginSubmit={handleLoginSubmit} />
+				}
 				<Footer />
 			</div>
 		</main>
