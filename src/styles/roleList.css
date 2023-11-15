@@ -7,11 +7,12 @@
     gap: 24px;
     border-top: 2px solid #31B9E4;
 
-
-
     .role-card {
-        height: 244px;
+        min-height: 244px;
         padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         border-radius: 3px;
         background-color: white;
         box-shadow: 0px 4px 6px #0000003D;
@@ -20,6 +21,12 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+
+            .pipe {
+                font-size: 12px;
+                margin-right: 8px;
+                border: 1px solid #0000001F;
+            }
 
             .header-div {
                 .expiry-div {
@@ -57,24 +64,86 @@
                 }
 
                 .duration-place-data {
+                    display: flex;
+                    gap: 16px;
+
                     .duration-dates {
                         font-size: 14px;
                     }
 
                     .location {
                         font-size: 12px;
+                        color: #666666;
+
+                        .location-logo {
+                            height: 14px;
+                            vertical-align: middle;
+                            margin-right: 4px;
+                        }
+                    }
+                }
+            }
+
+            .separator {
+                border-top: 1px solid #0000001F;
+            }
+
+            .job-roles-div {
+                .job-roles-title {
+                    font-size: 12px;
+                    color: #666666;
+                }
+
+                .roles-data-grid {
+                    width: 100%;
+                    display: flex;
+
+                    .role-data {
+                        display: flex;
+                        gap: 8px;
+                        font-size: 14px;
+
+                        .pipe {
+                            margin-right: 8px;
+                        }
+                    }
+                }
+            }
+
+            .tags-div {
+
+                .tags-data-grid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 16px;
+
+                    .role-title {
+                        height: 18px;
+                        width: max-content;
+                        font-size: 10px;
+                        background-color: #EEDD6B;
+                        border-radius: 9px;
+                        padding: 2px 8px;
                     }
                 }
             }
         }
 
         .role-card-action {
+            margin-top: 8px;
             text-align: center;
+            height: 28px;
+
+            .view-more {
+                font-size: 14px;
+                height: 100%;
+                padding: 5px 16px;
+                font-family: "Quicksand";
+                color: #25313F;
+                background-color: #3FD28B;
+                border-radius: 2px;
+                box-shadow: 0px 3px 5px #0000003D;
+            }
         }
     }
-}
-
-.role-card * {
-    box-sizing: content-box;
-    border: 1px solid cyan;
 }

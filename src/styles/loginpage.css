@@ -42,6 +42,7 @@
             .password-div .password-visibility-icon {
                 top: -48px;
                 position: relative;
+                cursor: pointer;
             }
 
             .input {
@@ -62,7 +63,6 @@
 
             .checkbox-div {
                 text-align: start;
-                color: #222222;
                 font: normal bold 16px/20px Quicksand;
 
                 #toBeRemembered {

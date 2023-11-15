@@ -2,17 +2,32 @@ import roleList from "../data/roleList"
 import "../styles/roleList.css"
 
 export default function RoleList(_props: any): React.ReactNode {
+
+    function dateDiffInDays(a: Date, b: Date) {
+        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+        // Discard the time and time-zone information.
+        const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+        const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+        return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+    }
+
+
     return (
         <div className="role-list-div">
             {
-                roleList.map((roleData) => {
+                roleList.map((roleData, index) => {
+                    const expiryDataInWeek = dateDiffInDays(new Date(Date.now()), new Date(roleData.expiryDate));
                     return (
-                        <div className="role-card">
+                        <div key={index} className="role-card">
                             <div className="role-card-data">
                                 <div className="header-div">
-                                    <div className="expiry-div">
-                                        <p className="text">{roleData.expiryDate}</p>
-                                    </div>
+                                    {
+                                        (expiryDataInWeek <= 7 && expiryDataInWeek > 0) &&
+                                        (<div className="expiry-div">
+                                            <p className="text">Expires in {expiryDataInWeek} {expiryDataInWeek == 1 ? "day" : "days"}</p>
+                                        </div>)
+                                    }
                                     <h4 className="title">{roleData.title}</h4>
                                 </div>
 
@@ -24,24 +39,27 @@ export default function RoleList(_props: any): React.ReactNode {
                                         </span>
                                         <span className="pipe"></span>
                                         <span className="location">
-                                            <img src="" alt="" className="location-logo" />
+                                            <img src="./src/assets/location_on_black_24dp.svg" className="location-logo" />
                                             {roleData.location}
                                         </span>
                                     </div>
                                 </div>
 
-                                <div className="seperator"></div>
+                                <div className="separator"></div>
 
                                 <div className="job-roles-div">
                                     <div className="job-roles-title">Job Roles:</div>
                                     <div className="roles-data-grid">
-                                        {roleData.jobRoles?.map((job) => {
+                                        {roleData.jobRoles?.map((job, index) => {
                                             return (
-                                                <span className="role-data">
-                                                    <img src="" alt="" className="role-logo" />
-                                                    <span className="role-title">{job.name}</span>
+                                                <span key={index} className="role-data-div">
+                                                    <span className="role-data">
+                                                        <img src={`./src/assets/${job.src}`} alt="" className="role-logo" />
+                                                        <span className="role-title">{job.name}</span>
+                                                        {index + 1 != roleData.jobRoles.length && (<span className="separator pipe"></span>)}
+                                                    </span>
                                                 </span>
-                                            )
+                                            );
                                         })}
                                     </div>
                                 </div>
@@ -51,7 +69,7 @@ export default function RoleList(_props: any): React.ReactNode {
                                         {roleData.tags?.map((tag) => {
                                             return (
                                                 <span className="tag-data">
-                                                    <span className="role-title">{tag}</span>
+                                                    <div className="role-title">{tag}</div>
                                                 </span>
                                             )
                                         })}
